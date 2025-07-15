@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ProjetoGeanBagattoli")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3cbb24318e92f03006db02b7afaac209e5b7c9b6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e0b5b03e064434544419b1828fb0ccfdb36195f3")]
 [assembly: System.Reflection.AssemblyProductAttribute("ProjetoGeanBagattoli")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ProjetoGeanBagattoli")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
