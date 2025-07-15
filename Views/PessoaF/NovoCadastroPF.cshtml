@@ -13,6 +13,7 @@
 <div class="row justify-content-md-center">
 
     <div class="col-md-3">
+        
         <h5 class="text-center">Dados Pessoais</h5>
 
         <div class="form-group mb-3">
@@ -22,16 +23,75 @@
         </div>
 
         <div class="form-group mb-3">
-            <label asp-for="CPF" class="control-label"></label>
-            <input asp-for="CPF" class="form-control" required />
-            <span asp-validation-for="CPF" class="text-danger"></span>
-        </div>
-
-        <div class="form-group mb-3">
             <label asp-for="DataNascimento" class="control-label">Data de Nascimento</label>
             <input asp-for="DataNascimento" class="form-control" type="date" required />
             <span asp-validation-for="DataNascimento" class="text-danger"></span>
         </div>
+
+        <div class="form-group mb-3">
+            <label asp-for="Filiacao.NomeMae" class="control-label">Nome do Pai</label>
+            <input asp-for="Filiacao.NomeMae" class="form-control" required />
+            <span asp-validation-for="Filiacao.NomeMae" class="text-danger"></span>
+            <label asp-for="Filiacao.NomePai" class="control-label">Nome da Mãe</label>
+            <input asp-for="Filiacao.NomePai" class="form-control" required />
+            <span asp-validation-for="Filiacao.NomePai" class="text-danger"></span>
+        </div>
+
+        <div class="form-group mb-3">
+            <label asp-for="Naturalidade.Estado" class="control-label">Naturalidade</label>
+            <select id="EstadoSelect" class="form-control" asp-for="Naturalidade.Estado" required>
+                <option value="">Selecione um estado</option>
+                @foreach (var estadoEnum in Enum.GetValues(typeof(UF)))
+                {
+                    <option value="@estadoEnum.ToString()">@estadoEnum.ToString()</option>
+                }
+            </select>
+            <select id="CidadeSelect" class="form-control" asp-for="Naturalidade.Cidade" disabled required>
+                <option>Selecione um estado primeiro</option>
+            </select>
+        </div>
+
+    </div>
+
+    <div class="col-md-3">
+        <h5 class="text-center">Documentos</h5>
+
+        <div class="form-group mb-3">
+            <label asp-for="Documento.CPF" class="control-label"></label>
+            <input asp-for="Documento.CPF" class="form-control" required />
+            <span asp-validation-for="Documento.CPF" class="text-danger"></span>
+        </div>
+
+        <div class="form-group mb-3">
+            <label asp-for="Documento.RG" class="control-label"></label>
+            <input asp-for="Documento.RG" class="form-control" required />
+            <span asp-validation-for="Documento.RG" class="text-danger"></span>
+            <label asp-for="Documento.RGExpedido" class="control-label"></label>
+            <input asp-for="Documento.RGExpedido" class="form-control" required />
+            <span asp-validation-for="Documento.RGExpedido" class="text-danger"></span>
+        </div>
+
+        <div class="form-group mb-3">
+            <label asp-for="Documento.CNH" class="control-label"></label>
+            <input asp-for="Documento.CNH" class="form-control" required />
+            <span asp-validation-for="Documento.CNH" class="text-danger"></span>
+            <label asp-for="Documento.CNHExpedido" class="control-label"></label>
+            <input asp-for="Documento.CNHExpedido" class="form-control" required />
+            <span asp-validation-for="Documento.CNHExpedido" class="text-danger"></span>
+        </div>
+
+        <div class="form-group mb-3">
+            <label asp-for="Documento.TituloEleitor" class="control-label"></label>
+            <input asp-for="Documento.TituloEleitor" class="form-control" required />
+            <span asp-validation-for="Documento.TituloEleitor" class="text-danger"></span>
+        </div>
+
+        <div class="form-group mb-3">
+            <label asp-for="Documento.PisNumero" class="control-label"></label>
+            <input asp-for="Documento.PisNumero" class="form-control" required />
+            <span asp-validation-for="Documento.PisNumero" class="text-danger"></span>
+        </div>
+
     </div>
 
     <div class="col-md-3">
@@ -97,23 +157,28 @@
                     <option value="@regimeCasamentoEnum.ToString()">@regimeCasamentoEnum.ToString()</option>
                 }
             </select>
+
+            <br />
+            <br />
+            <br />
+
+            <h5 class="text-center">Contato</h5>
+
+            <div class="form-group mb-3">
+                <label asp-for="Contato.Telefone" class="control-label"></label>
+                <input id="telefoneInput" asp-for="Contato.Telefone" class="form-control" required />
+                <span asp-validation-for="Contato.Telefone" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Contato.eMail" class="control-label"></label>
+                <input id="emailInput" asp-for="Contato.eMail" class="form-control" />
+                <span asp-validation-for="Contato.eMail" class="text-danger"></span>
+            </div>
+
         </div>
     </div>
-    <div class="col-md-3">
-        <h5 class="text-center">Contato</h5>
-
-        <div class="form-group mb-3">
-            <label asp-for="Contato.Telefone" class="control-label"></label>
-            <input id="telefoneInput" asp-for="Contato.Telefone" class="form-control" required />
-            <span asp-validation-for="Contato.Telefone" class="text-danger"></span>
-        </div>
-
-        <div class="form-group mb-3">
-            <label asp-for="Contato.eMail" class="control-label"></label>
-            <input id="emailInput" asp-for="Contato.eMail" class="form-control" />
-            <span asp-validation-for="Contato.eMail" class="text-danger"></span>
-        </div>
-    </div>
+   
 
 </div>
 
