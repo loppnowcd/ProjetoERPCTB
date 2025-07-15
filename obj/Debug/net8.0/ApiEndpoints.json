@@ -1,0 +1,18 @@
+[
+  {
+    "ContainingType": "LocalidadeController",
+    "Method": "GetCidades",
+    "RelativePath": "api/Localidade/{estado}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "estado",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
