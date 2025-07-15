@@ -79,9 +79,49 @@
     <div class="col-md-3">
         <h5 class="text-center">Estado Civil</h5>
         <div class="form-group mb-3">
+            <label asp-for="EstadoCivil.EstatusSocial" class="control-label"></label>
+            <select id="EstadoCivilSelect" class="form-control" asp-for="EstadoCivil.EstatusSocial">
+                <option value="">Selecione o estado civil</option>
+                @foreach (var estadoCivilEnum in Enum.GetValues(typeof(EstatSocial)))
+                {
+                    <option value="@estadoCivilEnum.ToString()">@estadoCivilEnum.ToString()</option>
+                }
+            </select>
+        </div>
+        <div class="form-group mb-3">
+            <label asp-for="EstadoCivil.NomeConjuge" class="control-label"></label>
+            <input asp-for="EstadoCivil.NomeConjuge" class="form-control" />
+        </div>
+        <div class="form-group mb-3">
+            <label asp-for="EstadoCivil.RegimeCasamento" class="control-label"></label>
+            <select id="RegimeCasamentoSelect" class="form-control" asp-for="EstadoCivil.RegimeCasamento">
+                <option value="">Selecione o regime do casamento</option>
+                @foreach (var regimeCasamentoEnum in Enum.GetValues(typeof(RegimCasamento)))
+                {
+                    <option value="@regimeCasamentoEnum.ToString()">@regimeCasamentoEnum.ToString()</option>
+                }
+            </select>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <h5 class="text-center">Contato</h5>
+
+        <div class="form-group mb-3">
             <label asp-for="Nome" class="control-label"></label>
             <input asp-for="Nome" class="form-control" />
             <span asp-validation-for="Nome" class="text-danger"></span>
+        </div>
+
+        <div class="form-group mb-3">
+            <label asp-for="CPF" class="control-label"></label>
+            <input asp-for="CPF" class="form-control" />
+            <span asp-validation-for="CPF" class="text-danger"></span>
+        </div>
+
+        <div class="form-group mb-3">
+            <label asp-for="DataNascimento" class="control-label">Data de Nascimento</label>
+            <input asp-for="DataNascimento" class="form-control" type="date" />
+            <span asp-validation-for="DataNascimento" class="text-danger"></span>
         </div>
     </div>
 

@@ -2,9 +2,8 @@
 
 namespace ProjetoGeanBagattoli.Models
 {
-    public class EstadCivil
+    public class DadosEstadoCivil
     {
-        public int Id { get; set; }
         public EstatSocial EstatusSocial { get; set; }
         public string? NomeConjuge { get; set; }
         public RegimCasamento? RegimeCasamento { get; set; }

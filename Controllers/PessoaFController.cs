@@ -8,7 +8,7 @@ namespace ProjetoGeanBagattoli.Controllers
         // ==========================================================
         // PASSO 1: ADICIONE ESTE MÉTODO QUE ESTAVA FALTANDO
         // Esta é a ação que MOSTRA o formulário em branco (GET)
-        public IActionResult Create()
+        public IActionResult NovoCadastroPF()
         {
             return View();
         }
@@ -19,7 +19,7 @@ namespace ProjetoGeanBagattoli.Controllers
         // Este é o seu método que já existe (POST)
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(PessoaF pessoaF)
+        public IActionResult NovoCadastroPF(PessoaF pessoaF)
         {
             // O ModelState.IsValid verifica se os dados recebidos são válidos
             // (ex: se campos obrigatórios foram preenchidos)

@@ -8,9 +8,9 @@
         public string RG { get; set; }
         public string Profissao { get; set; }
         public DateTime DataNascimento { get; set; }
-        public EstadCivil EstadoCivil { get; set; }
-        public Endereco Endereco { get; set; }
-        public Contat Contato { get; set; }
+        public DadosEstadoCivil EstadoCivil { get; set; }
+        public DadosEndereco Endereco { get; set; }
+        public DadosContato Contato { get; set; }
         public bool Status { get; set; }
 
     }
