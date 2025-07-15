@@ -14,6 +14,7 @@ namespace ProjetoGeanBagattoli.Models
         public DadosEstadoCivil EstadoCivil { get; set; }
         public DadosEndereco Endereco { get; set; }
         public DadosContato Contato { get; set; }
+        public string SenhaGovBR { get; set; }
         public bool Status { get; set; }
 
     }
