@@ -18,7 +18,7 @@ namespace ProjetoGeanBagattoli.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult Features()
         {
             return View();
         }

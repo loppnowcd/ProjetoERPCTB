@@ -10,6 +10,7 @@ namespace ProjetoGeanBagattoli.Models
         public DadosEndereco Naturalidade { get; set; }
         public DadosFiliacao Filiacao { get; set; }
         public DadosDocumentos Documento { get; set; }
+        [Display(Name = "Profissão")]
         public string Profissao { get; set; }
         public DadosEstadoCivil EstadoCivil { get; set; }
         public DadosEndereco Endereco { get; set; }
