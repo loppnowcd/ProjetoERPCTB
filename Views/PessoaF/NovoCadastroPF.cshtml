@@ -39,14 +39,14 @@
 
         <div class="form-group mb-3">
             <label asp-for="Naturalidade.Estado" class="control-label">Naturalidade</label>
-            <select id="EstadoSelect" class="form-control" asp-for="Naturalidade.Estado" required>
+            <select id="EstadoNaturalidadeSelect" class="form-control" asp-for="Naturalidade.Estado" required>
                 <option value="">Selecione um estado</option>
                 @foreach (var estadoEnum in Enum.GetValues(typeof(UF)))
                 {
                     <option value="@estadoEnum.ToString()">@estadoEnum.ToString()</option>
                 }
             </select>
-            <select id="CidadeSelect" class="form-control" asp-for="Naturalidade.Cidade" disabled required>
+            <select id="CidadeNaturalidadeSelect" class="form-control" asp-for="Naturalidade.Cidade" disabled required>
                 <option>Selecione um estado primeiro</option>
             </select>
         </div>
@@ -205,7 +205,9 @@
 @section Scripts {
     <script src="https://unpkg.com/imask"></script>
     <script>
+        
         document.addEventListener('DOMContentLoaded', function () {
+
             const estadoSelect = document.getElementById('EstadoSelect');
             const cidadeSelect = document.getElementById('CidadeSelect');
 
@@ -237,9 +239,44 @@
                     cidadeSelect.disabled = true;
                 }
             });
-        });
+        })
 
-                const estadoCivilSelect = document.getElementById('EstadoCivilSelect');
+        document.addEventListener('DOMContentLoaded', function () {
+
+            const estadoSelect = document.getElementById('EstadoNaturalidadeSelect');
+            const cidadeSelect = document.getElementById('CidadeNaturalidadeSelect');
+
+            estadoSelect.addEventListener('change', function () {
+                const uf = this.value;
+
+                cidadeSelect.innerHTML = '<option>Carregando...</option>';
+                cidadeSelect.disabled = true;
+
+                if (uf) {
+                    fetch(`/api/Localidade/${uf}`)
+                        .then(response => response.json())
+                        .then(cidades => {
+                            cidadeSelect.innerHTML = '<option value="">Selecione a Cidade</option>';
+                            cidades.forEach(cidade => {
+                                const option = document.createElement('option');
+                                option.value = cidade.nome;
+                                option.textContent = cidade.nome;
+                                cidadeSelect.appendChild(option);
+                            });
+                            cidadeSelect.disabled = false;
+                        })
+                        .catch(error => {
+                            console.error('Erro ao buscar cidades:', error);
+                            cidadeSelect.innerHTML = '<option>Erro ao carregar cidades</option>';
+                        });
+                } else {
+                    cidadeSelect.innerHTML = '<option>Selecione um estado primeiro</option>';
+                    cidadeSelect.disabled = true;
+                }
+            });
+        })
+
+        const estadoCivilSelect = document.getElementById('EstadoCivilSelect');
         const nomeConjugeInput = document.getElementById('NomeConjugeSelect');
         const regimeCasamentoSelect = document.getElementById('RegimeCasamentoSelect');
 
